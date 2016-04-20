@@ -10,7 +10,7 @@ You will need to configure AWS CLI in order to run this script using CRONJOB
 
 
 **How it works:**
-ebs-snapshot.sh will:
+automatic-snapshot-script.sh will:
 - Determine the instance ID of the EC2 server on which the script runs
 - Gather a list of all volume IDs attached to that instance
 - Take a snapshot of each attached volume
