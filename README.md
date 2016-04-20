@@ -28,7 +28,7 @@ Pull requests greatly welcomed!
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "Stmt1426256275000",
+            "Sid": "Stmt14262562346560",
             "Effect": "Allow",
             "Action": [
                 "ec2:CreateSnapshot",
@@ -76,22 +76,23 @@ Default output format: (Enter "text".)```
 ```
 cd ~
 wget https://github.com/bhargavamin/aws-automatic-ebs-snapshots/blob/master/automatic-snapshot-script.sh
-chmod +x ebs-snapshot.sh
+chmod +x automatic-snapshot-script.sh
 mkdir -p /opt/aws
-sudo mv ebs-snapshot.sh /opt/aws/
+sudo mv automatic-snapshot-script.sh /opt/aws/
+```
+To manually test the script:
+```
+sudo /opt/aws/automatic-snapshot-script.sh
 ```
 
-You should then setup a cron job in order to schedule a nightly backup. Example crontab jobs:
+To setup a cron job in order to schedule a nightly backup. Example crontab jobs:
 ```
-55 22 * * * root  AWS_CONFIG_FILE="/root/.aws/config" /opt/aws/ebs-snapshot.sh
+55 22 * * * root  AWS_CONFIG_FILE="/root/.aws/config" /opt/aws/automatic-snapshot-script.sh
 
 # Or written another way:
 AWS_CONFIG_FILE="/root/.aws/config" 
-55 22 * * * root  /opt/aws/ebs-snapshot.sh
+55 22 * * * root  /opt/aws/automatic-snapshot-script.sh
 ```
 
-To manually test the script:
-```
-sudo /opt/aws/ebs-snapshot.sh
-```
+
 
