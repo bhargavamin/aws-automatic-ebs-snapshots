@@ -102,7 +102,7 @@ log_setup
 prerequisite_check
 
 # Grab all volume IDs attached to this instance
-volume_list=$(aws ec2 describe-volumes --query Volumes[].VolumeId --output text)
+volume_list=$(aws ec2 describe-volumes --region $region --query Volumes[].VolumeId --output text)
 
 snapshot_volumes
 cleanup_snapshots
